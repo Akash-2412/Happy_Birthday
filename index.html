@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Venom</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Press+Start+2P&display=swap">
+<style>
+:root{
+  --bg1:#ffe6f2;--bg2:#ffbfdc;--ink:#4a1233;--ink2:#7d3a60;--edge:#4a1233;--hard:#4a1233;
+  --pink:#ff4f9a;--pink2:#ff8cc3;--btn:#d81b78;--card:rgba(255,255,255,.78);--lav:#b79bff;--mint:#2fd9a6;--flame:#ffd24d;
+  --px:'Press Start 2P',ui-monospace,monospace;--body:'Nunito',system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg1:#2b0b22;--bg2:#52153b;--ink:#ffe9f4;--ink2:#f6b8d7;--edge:#ff9ccb;--hard:#13030d;--card:rgba(255,255,255,.07);}}
+:root[data-theme="dark"]{--bg1:#2b0b22;--bg2:#52153b;--ink:#ffe9f4;--ink2:#f6b8d7;--edge:#ff9ccb;--hard:#13030d;--card:rgba(255,255,255,.07);}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;font-family:var(--body);font-weight:600;color:var(--ink);overflow-x:hidden;
+  background:radial-gradient(60vmax 60vmax at 10% 0%,rgba(255,255,255,.55),transparent 60%),
+  radial-gradient(50vmax 50vmax at 100% 40%,rgba(183,155,255,.35),transparent 60%),
+  linear-gradient(165deg,var(--bg1),var(--bg2)) fixed;background-color:var(--bg1)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--lav);outline-offset:3px}
+
+/* background floaters */
+.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bg span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.55}
+@keyframes rise{to{transform:translateY(-115vh) rotate(40deg)}}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+
+/* intro */
+#intro{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;
+  background:radial-gradient(70vmax 70vmax at 50% 30%,#ff6fb0,#c2185b 60%,#4a0f33);color:#fff;transition:opacity .7s,visibility .7s}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+.ctl{font-size:64px;animation:bob 1.6s ease-in-out infinite}
+.introT{font-family:var(--px);font-size:clamp(34px,13vw,96px);margin:0;text-shadow:4px 4px 0 #4a0f33;letter-spacing:2px}
+.sub{margin:0;font-size:18px;max-width:28ch;color:#ffe3f1}
+#start{animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:.55}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-6deg)}}
+
+.btn{font-family:var(--px);font-size:12px;line-height:1.4;padding:15px 20px;background:var(--btn);color:#fff;border:3px solid var(--edge);border-radius:6px;
+  box-shadow:0 5px 0 var(--hard);cursor:pointer;touch-action:manipulation}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--hard)}
+.btn.big{font-size:14px;padding:18px 26px;border-color:#fff;box-shadow:0 6px 0 #4a0f33}
+
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 20px 56px}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px;padding:40px 0}
+.pad{font-size:54px;animation:bob 2s ease-in-out infinite}
+h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.hb{font-family:var(--px);font-size:clamp(12px,5.2vw,30px);white-space:nowrap;min-height:1.4em;color:var(--ink)}
+.hb::after{content:"_";animation:blink 1s steps(2) infinite}
+.name{font-family:var(--px);font-size:clamp(38px,15.5vw,132px);line-height:1.05;
+  background:linear-gradient(100deg,#ff3d8f,#ff9ccb,#b79bff,#ff3d8f);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(4px 4px 0 var(--hard));animation:shimmer 5s linear infinite}
+@keyframes shimmer{to{background-position:250% 0}}
+.xp{display:flex;align-items:center;gap:12px;width:min(420px,88%);font-family:var(--px);font-size:12px}
+.track{flex:1;height:26px;border:3px solid var(--edge);border-radius:4px;background:var(--card);padding:3px;box-shadow:3px 3px 0 var(--hard)}
+#bar{display:block;height:100%;width:0;background:repeating-linear-gradient(90deg,var(--pink) 0 14px,var(--pink2) 14px 18px);transition:width 2.4s steps(14)}
+#bar.full{width:100%}
+.lvl{font-family:var(--px);font-size:clamp(14px,4.4vw,22px);color:#fff;background:var(--mint);color:#04382a;border:3px solid var(--edge);padding:12px 16px;border-radius:4px;box-shadow:4px 4px 0 var(--hard);opacity:0;transform:scale(.4)}
+.lvl.pop{animation:pop .6s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes pop{to{opacity:1;transform:scale(1) rotate(-2deg)}}
+.hint{margin:6px 0 0;color:var(--ink2);animation:bob 1.8s ease-in-out infinite}
+
+.sec{padding:36px 0;text-align:center}
+h2{font-family:var(--px);font-size:clamp(14px,3.8vw,20px);line-height:1.6;margin:0 0 20px}
+.card{background:var(--card);border:3px solid var(--edge);border-radius:4px;box-shadow:6px 6px 0 var(--pink);padding:22px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+/* cake */
+.cake{position:relative;width:210px;height:200px;margin:34px auto 14px;cursor:pointer}
+.cake i{position:absolute;display:block;border:3px solid var(--edge)}
+.l1{left:0;bottom:0;width:210px;height:72px;background:linear-gradient(var(--pink2),var(--pink));border-radius:6px}
+.l2{left:28px;bottom:69px;width:154px;height:62px;background:linear-gradient(#ffc7e1,var(--pink2));border-radius:6px 6px 0 0}
+.l2::before{content:"";position:absolute;left:-3px;right:-3px;top:-3px;height:22px;background:radial-gradient(circle at 13px 0,#fff 11px,transparent 12px) 0 0/26px 22px repeat-x}
+.l1::after{content:"♥  ♥  ♥  ♥";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;letter-spacing:6px}
+.c{width:12px;height:38px;bottom:128px;background:repeating-linear-gradient(#fff 0 6px,var(--lav) 6px 12px);border-radius:2px}
+.c:nth-of-type(3){left:70px}.c:nth-of-type(4){left:99px}.c:nth-of-type(5){left:128px}
+.c b{position:absolute;left:50%;top:-26px;width:14px;height:22px;margin-left:-7px;border-radius:50% 50% 50% 50%/65% 65% 38% 38%;
+  background:radial-gradient(circle at 50% 70%,#fff3b0,var(--flame) 45%,#ff7a2f);transform-origin:50% 100%;animation:flick .35s ease-in-out infinite alternate;transition:transform .35s,opacity .35s}
+.out .c b{transform:scale(0);opacity:0;animation:none}
+@keyframes flick{from{transform:scale(1,1) rotate(-4deg)}to{transform:scale(.9,1.12) rotate(4deg)}}
+.wish{min-height:3em;margin:0 auto 18px;max-width:34ch;color:var(--ink2);font-size:18px}
+
+/* achievements */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;text-align:left}
+.ach{width:100%;display:block;cursor:pointer;touch-action:manipulation;background:var(--card);border:3px solid var(--edge);border-radius:4px;padding:18px;box-shadow:5px 5px 0 var(--hard);min-height:150px;text-align:left}
+.ach:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--hard)}
+.ach .ic{display:block;font-size:34px;margin-bottom:10px}
+.ach .t{display:block;font-family:var(--px);font-size:12px;line-height:1.6;margin-bottom:8px}
+.ach .d{display:block;font-size:16px;line-height:1.45;color:var(--ink2)}
+.ach .o{display:none}
+.ach.open{background:linear-gradient(145deg,var(--card),rgba(255,79,154,.28));box-shadow:5px 5px 0 var(--pink)}
+.ach.open .o{display:block;animation:pop2 .45s cubic-bezier(.2,1.5,.4,1)}
+.ach.open .x{display:none}
+@keyframes pop2{from{opacity:0;transform:scale(.85)}}
+#count{margin:20px 0 0;font-family:var(--px);font-size:11px;line-height:1.7;color:var(--ink2)}
+
+.msg{text-align:left;font-size:19px;line-height:1.65;text-wrap:pretty}
+.msg p{margin:0 0 14px}
+.sig{font-family:var(--px);font-size:13px;text-align:right;margin:8px 0 0!important;color:var(--btn)}
+:root:not([data-theme="light"]) .sig{color:var(--pink2)}
+footer{text-align:center;padding:30px 0 10px}
+footer p{font-family:var(--px);font-size:clamp(12px,3.6vw,16px);line-height:1.7;margin:0 0 20px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .bg{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg" id="bg" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div id="intro">
+  <div class="ctl" aria-hidden="true">🎮</div>
+  <div class="introT">VENOM</div>
+  <p class="sub">Player 1, you have a birthday surprise waiting.</p>
+  <button id="start" class="btn big">PRESS START</button>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="pad" aria-hidden="true">🎮</div>
+    <h1 aria-label="Happy Birthday Venom">
+      <span id="hb" class="hb" aria-hidden="true"></span>
+      <span class="name" aria-hidden="true">VENOM</span>
+    </h1>
+    <div class="xp"><span>XP</span><div class="track"><i id="bar"></i></div></div>
+    <div id="lvl" class="lvl">LEVEL UP!</div>
+    <p class="hint">Scroll down for your loot ▼</p>
+  </section>
+
+  <section class="sec">
+    <h2>Make a wish</h2>
+    <div class="cake" id="cake" aria-hidden="true">
+      <i class="l1"></i><i class="l2"></i>
+      <i class="c"><b></b></i><i class="c"><b></b></i><i class="c"><b></b></i>
+    </div>
+    <p id="wish" class="wish" aria-live="polite">Three candles are lit. Make a wish, then blow them out.</p>
+    <button id="blow" class="btn">Blow out candles</button>
+  </section>
+
+  <section class="sec">
+    <h2>Achievements to unlock</h2>
+    <div class="grid">
+      <button class="ach"><span class="ic x">🔒</span><span class="t x">LOCKED</span><span class="d x">Tap to unlock</span>
+        <span class="o"><span class="ic">🎯</span><span class="t">Clutch Mode</span><span class="d">Wins the round everyone else already gave up on.</span></span></button>
+      <button class="ach"><span class="ic x">🔒</span><span class="t x">LOCKED</span><span class="d x">Tap to unlock</span>
+        <span class="o"><span class="ic">💖</span><span class="t">Squad Glue</span><span class="d">Makes every lobby better just by joining it.</span></span></button>
+      <button class="ach"><span class="ic x">🔒</span><span class="t x">LOCKED</span><span class="d x">Tap to unlock</span>
+        <span class="o"><span class="ic">👑</span><span class="t">Main Character</span><span class="d">Same legendary energy on the leaderboard and off it.</span></span></button>
+    </div>
+    <p id="count">0 of 3 unlocked</p>
+  </section>
+
+  <section class="sec">
+    <div class="card msg">
+      <p>Happy birthday, Venom!</p>
+      <p>Another year, another level, and you’re still the player everyone wants on their team. I hope your day is packed with good loot, zero lag and way too much cake.</p>
+      <p>Celebrate hard, then queue up for the next season. It’s going to be a good one.</p>
+      <p class="sig">— Akash</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Game on, Venom. 🎂</p>
+    <button id="again" class="btn">More confetti</button>
+  </footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cv=$('#fx'),cx=cv.getContext('2d');
+let W,H,P=[],run=false;
+function size(){const d=devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+addEventListener('resize',size);size();
+const COL=['#ff4f9a','#ff8cc3','#ffd1e8','#b79bff','#2fd9a6','#ffd24d'];
+function burst(x,y,n=60,k=1){
+  n=calm?Math.ceil(n/4):n;
+  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=(2+Math.random()*7)*k;
+    P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,g:.18,w:5+Math.random()*6,h:5+Math.random()*6,c:COL[i%6],r:Math.random()*6,vr:(Math.random()-.5)*.4,l:0})}
+  go();
+}
+function rain(n=90){
+  n=calm?Math.ceil(n/4):n;
+  for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:-20-Math.random()*H*.4,vx:(Math.random()-.5)*2,vy:Math.random()*2+1,g:.04,w:6+Math.random()*6,h:6+Math.random()*6,c:COL[i%6],r:Math.random()*6,vr:(Math.random()-.5)*.3,l:0});
+  go();
+}
+function go(){if(!run){run=true;requestAnimationFrame(tick)}}
+function tick(){
+  cx.clearRect(0,0,W,H);
+  P=P.filter(p=>p.y<H+30&&p.l<420);
+  for(const p of P){p.l++;p.vy=Math.min(p.vy+p.g,9);p.vx*=.992;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;
+    cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore()}
+  if(P.length)requestAnimationFrame(tick);else{run=false;cx.clearRect(0,0,W,H)}
+}
+
+/* floating hearts and sparkles */
+(function(){
+  const bg=$('#bg'),sy=['♥','✦','♥','✧','♡'],cl=['#ff4f9a','#ff8cc3','#b79bff','#ff6fb0'];
+  for(let i=0;i<18;i++){const s=document.createElement('span');
+    s.textContent=sy[i%sy.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(14+Math.random()*26)+'px';
+    s.style.color=cl[i%cl.length];s.style.animationDuration=(9+Math.random()*12)+'s';s.style.animationDelay=(-Math.random()*18)+'s';bg.appendChild(s)}
+})();
+
+/* start */
+let live=false;
+function typeIt(){
+  const t='HAPPY BIRTHDAY',el=$('#hb');
+  if(calm){el.textContent=t;return}
+  let i=0;const id=setInterval(()=>{el.textContent=t.slice(0,++i);if(i>=t.length)clearInterval(id)},80);
+}
+$('#start').onclick=()=>{
+  live=true;document.body.classList.add('live');$('#intro').classList.add('gone');
+  burst(W/2,H/2,100,1.2);setTimeout(()=>rain(),350);
+  typeIt();
+  setTimeout(()=>$('#bar').classList.add('full'),500);
+  setTimeout(()=>{const l=$('#lvl');l.classList.add('pop');const r=l.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,80,1.1)},calm?600:3100);
+};
+
+/* cake */
+let lit=true;
+function toggle(){
+  lit=!lit;$('#cake').classList.toggle('out',!lit);
+  $('#blow').textContent=lit?'Blow out candles':'Relight candles';
+  $('#wish').textContent=lit?'Three candles are lit. Make a wish, then blow them out.':'Wish locked in. Now go cut the cake.';
+  if(!lit){const r=$('#cake').getBoundingClientRect();burst(r.left+r.width/2,r.top+30,80);rain(50)}
+}
+$('#blow').onclick=toggle;$('#cake').onclick=toggle;
+
+/* achievements */
+let got=0;
+document.querySelectorAll('.ach').forEach(b=>b.onclick=()=>{
+  if(b.classList.contains('open'))return;
+  b.classList.add('open');got++;
+  const r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,45);
+  $('#count').textContent=got<3?got+' of 3 unlocked':'3 of 3 unlocked. Legend status confirmed.';
+  if(got===3)setTimeout(()=>rain(),350);
+});
+
+$('#again').onclick=()=>{burst(W/2,H*.45,110,1.3);rain()};
+document.addEventListener('pointerdown',e=>{if(live&&!e.target.closest('button,.cake'))burst(e.clientX,e.clientY,14,.6)});
+</script>
+</body>
+</html>
